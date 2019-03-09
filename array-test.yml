@@ -1,4 +1,6 @@
 ---
+# output should iterate over each item of the array
+#
 - hosts: localhost
   vars:
     - arrayofnum: [ '1', '2', '3']

@@ -1,0 +1,42 @@
+---
+# will loop with two nested loops within each loop
+# output will pair each item in the first array with each item in the 2nd and the 3rd
+# e.g. a,1,x a,2 b,1 b,2 etc.
+#
+# basically the output is the number of items of each array multipled
+#
+# in this case 4 x 3 x 2 = 24
+#TASK [command] ***************************************************************
+#changed: [localhost] => (item=[u'a', u'1', u'x'])
+#changed: [localhost] => (item=[u'a', u'1', u'y'])
+#changed: [localhost] => (item=[u'a', u'1', u'z'])
+#changed: [localhost] => (item=[u'a', u'2', u'x'])
+#changed: [localhost] => (item=[u'a', u'2', u'y'])
+#changed: [localhost] => (item=[u'a', u'2', u'z'])
+#changed: [localhost] => (item=[u'b', u'1', u'x'])
+#changed: [localhost] => (item=[u'b', u'1', u'y'])
+#changed: [localhost] => (item=[u'b', u'1', u'z'])
+#changed: [localhost] => (item=[u'b', u'2', u'x'])
+#changed: [localhost] => (item=[u'b', u'2', u'y'])
+#changed: [localhost] => (item=[u'b', u'2', u'z'])
+#changed: [localhost] => (item=[u'c', u'1', u'x'])
+#changed: [localhost] => (item=[u'c', u'1', u'y'])
+#changed: [localhost] => (item=[u'c', u'1', u'z'])
+#changed: [localhost] => (item=[u'c', u'2', u'x'])
+#changed: [localhost] => (item=[u'c', u'2', u'y'])
+#changed: [localhost] => (item=[u'c', u'2', u'z'])
+#changed: [localhost] => (item=[u'd', u'1', u'x'])
+#changed: [localhost] => (item=[u'd', u'1', u'y'])
+#changed: [localhost] => (item=[u'd', u'1', u'z'])
+#changed: [localhost] => (item=[u'd', u'2', u'x'])
+#changed: [localhost] => (item=[u'd', u'2', u'y'])
+#changed: [localhost] => (item=[u'd', u'2', u'z'])
+#
+- hosts: localhost
+
+  tasks:
+    - shell: "echo {{ item[0] }}-{{ item[1] }}-{{ item[2] }}"
+      with_nested: 
+        - ['a', 'b', 'c', 'd']
+        - ['1', '2' ]
+        - ['x', 'y', 'z']

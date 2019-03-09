@@ -1,4 +1,8 @@
 ---
+# will loop with a nested loop within
+# output will pair each item in the first array with each item in the 2nd
+# e.g. a,1 a,2 b,1 b,2 etc. 
+#
 - hosts: localhost
 
   tasks:
