@@ -1,0 +1,7 @@
+---
+- hosts: localhost
+  vars:
+    - arrayofnum: [ '1', '2', '3']
+  tasks:
+    - shell: "echo {{ item }}"
+      with_items: "{{ arrayofnum }}"
